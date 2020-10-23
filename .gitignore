@@ -4,3 +4,9 @@
 
 # ignore object files
 *.o
+
+# ignore executables
+algebras
+seven_to_one
+readP
+monadPlus

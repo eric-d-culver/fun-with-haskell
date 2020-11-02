@@ -1,6 +1,8 @@
 -- allows Functor typeclass to be derived automatically
 {-# LANGUAGE DeriveFunctor #-}
 
+import Testing(testInverses)
+
 -- practice with recursive data types
 -- List: x = 1 + a*x
 data List a = Nil | Cons a (List a)
@@ -59,13 +61,6 @@ sumToDub (Right x) = (True, x)
 dubToSum :: (Bool, a) -> Either a a
 dubToSum (False, x) = Left x
 dubToSum (True, x) = Right x
-
--- helper function for showing isomorphisms
-testInverses :: (Show a, Show b) => (b -> a) -> (a -> b) -> a -> IO ()
-testInverses f g x = do
-                    putStrLn $ show $ x
-                    putStrLn $ show $ g x
-                    putStrLn $ show $ f $ g x
 
 lst = frList [1,1,2,3,5,8]
 
